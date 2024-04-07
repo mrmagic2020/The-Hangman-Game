@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3ED7376A2BC13C45005939D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED737692BC13C45005939D7 /* main.cpp */; };
+		3E40870A2BC237CF0017D903 /* hangman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED737692BC13C45005939D7 /* hangman.cpp */; };
+		3E4087122BC260340017D903 /* libcurl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4087112BC260340017D903 /* libcurl.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +24,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3E40870B2BC23B1B0017D903 /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = SOURCE_ROOT; };
+		3E40870F2BC25F310017D903 /* cget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cget.h; sourceTree = "<group>"; };
+		3E4087112BC260340017D903 /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = usr/lib/libcurl.tbd; sourceTree = SDKROOT; };
+		3E4087132BC260EB0017D903 /* canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = canvas.h; sourceTree = "<group>"; };
+		3E4087142BC2641A0017D903 /* word.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = word.h; sourceTree = "<group>"; };
+		3E4087162BC29B9C0017D903 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
 		3ED737662BC13C45005939D7 /* The Hangman Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "The Hangman Game"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ED737692BC13C45005939D7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3ED737692BC13C45005939D7 /* hangman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hangman.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +39,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E4087122BC260340017D903 /* libcurl.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E4087102BC260340017D903 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E4087112BC260340017D903 /* libcurl.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3ED7375D2BC13C45005939D7 = {
 			isa = PBXGroup;
 			children = (
 				3ED737682BC13C45005939D7 /* The Hangman Game */,
 				3ED737672BC13C45005939D7 /* Products */,
+				3E4087102BC260340017D903 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +74,12 @@
 		3ED737682BC13C45005939D7 /* The Hangman Game */ = {
 			isa = PBXGroup;
 			children = (
-				3ED737692BC13C45005939D7 /* main.cpp */,
+				3E40870F2BC25F310017D903 /* cget.h */,
+				3E4087132BC260EB0017D903 /* canvas.h */,
+				3E40870B2BC23B1B0017D903 /* debug.h */,
+				3E4087142BC2641A0017D903 /* word.h */,
+				3E4087162BC29B9C0017D903 /* game.h */,
+				3ED737692BC13C45005939D7 /* hangman.cpp */,
 			);
 			path = "The Hangman Game";
 			sourceTree = "<group>";
@@ -119,7 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ED7376A2BC13C45005939D7 /* main.cpp in Sources */,
+				3E40870A2BC237CF0017D903 /* hangman.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
