@@ -67,7 +67,7 @@ public:
     
     void printAbout()
     {
-        printf("The Hangman Game is an open-source command line (CLI) game. It fetches words from https://random-word.ryanrk.com/ - a big thanks for them. \nLicense     | MIT \nGitHub Repo | https://github.com/mrmagic2020/The-Hangman-Game \nSupport me by starring my GitHub repository! \n");
+        printf("The Hangman Game is an open-source command line (CLI) game. It fetches words from https://random-word.ryanrk.com/ - a big thanks for them. \nVersion     | v1.0.0 \nLicense     | MIT \nGitHub Repo | https://github.com/mrmagic2020/The-Hangman-Game \nSupport me by starring my GitHub repository! \n");
     }
 };
 
