@@ -30,6 +30,7 @@
 		3E4087132BC260EB0017D903 /* canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = canvas.h; sourceTree = "<group>"; };
 		3E4087142BC2641A0017D903 /* word.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = word.h; sourceTree = "<group>"; };
 		3E4087162BC29B9C0017D903 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		3E9039C72BC3C44800DAEADA /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		3ED737662BC13C45005939D7 /* The Hangman Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "The Hangman Game"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED737692BC13C45005939D7 /* hangman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hangman.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +75,7 @@
 		3ED737682BC13C45005939D7 /* The Hangman Game */ = {
 			isa = PBXGroup;
 			children = (
+				3E9039C72BC3C44800DAEADA /* json.hpp */,
 				3E40870F2BC25F310017D903 /* cget.h */,
 				3E4087132BC260EB0017D903 /* canvas.h */,
 				3E40870B2BC23B1B0017D903 /* debug.h */,
