@@ -8,9 +8,14 @@
 #ifndef cget_h
 #define cget_h
 
-using namespace std;
+#include <iostream>
+#include "json.hpp"
+#include "debug.h"
 
-const string url = "https://random-word.ryanrk.com/api/en/word/random/?length=";
+using namespace std;
+using json = nlohmann::json;
+
+const string url = "https://random-word-api.herokuapp.com/word?length=";
 
 string getUrl(int length)
 {
@@ -19,7 +24,11 @@ string getUrl(int length)
 
 string parse(string str)
 {
-    return str.substr(2, str.size() - 4);
+    auto j = json::parse(str);
+    string res = j[0];
+    debug.print("Parsed result: %s\n", res.c_str());
+    return res;
+//    return str.substr(2, str.size() - 4);
 }
 
 // Callback function writes data to a ostream
