@@ -5,6 +5,10 @@
 
 .DS_Store
 
+# IDE
+
+.vscode
+
 # c.f. http://www.westwind.com/reference/os-x/invisibles.html
 
 .Trashes
@@ -47,6 +51,8 @@ DerivedData/
 # NB: slash on the end, so we only remove the FOLDER, not any files that were badly named "build"
 
 build/
+
+build
 
 
 #####
