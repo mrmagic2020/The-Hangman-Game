@@ -18,6 +18,9 @@
 #include "word.h"
 #include "game.h"
 
+#define AUTHOR "mrmagic2020"
+#define VERSION "v1.1.0"
+
 using namespace std;
 
 Debug debug(false);
@@ -27,7 +30,8 @@ class Body
 private:
     void welcome()
     {
-        printf("Welcome to The Hangman Game! \nabout | About the game \nnew | Start a new game \ncustom | Customise a game \nquit | Exit the game \n");
+        printf("Welcome to The Hangman Game!\n");
+        printCmds();
         char ccmd[101];
         string cmd = ccmd;
         while (cmd != "quit")
@@ -43,11 +47,21 @@ private:
             {
                 Game game;
                 game.init();
+                printCmds();
             }
             else if (cmd == "custom")
             {
                 Game game;
                 game.init(true);
+                printCmds();
+            }
+            else if (cmd == "help")
+            {
+                printCmds();
+            }
+            else if (cmd == "update")
+            {
+                printUpdate();
             }
             else if (cmd == "quit")
             {
@@ -59,15 +73,25 @@ private:
             }
         }
     }
+    
+    void printAbout()
+    {
+        printf("The Hangman Game is an open-source command line (CLI) game. It fetches words from https://random-word-api.herokuapp.com/ - a big thanks to them. \nAuthor      | %s \nVersion     | %s \nLicense     | MIT \nGitHub Repo | https://github.com/mrmagic2020/The-Hangman-Game \nSupport me by starring my GitHub repository! \n", AUTHOR, VERSION);
+    }
+    
+    void printCmds()
+    {
+        printf("List of commands: \nabout  | About the game \nnew    | Start a new game \ncustom | Customise a game \nupdate | View instructions on how to update the game \nquit   | Exit the game \n");
+    }
+    
+    void printUpdate()
+    {
+        printf("Get the latest version of The Hangman Game at https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
+    }
 public:
     void process(int argc, const char * argv[])
     {
         if (argc == 1) return welcome();
-    }
-    
-    void printAbout()
-    {
-        printf("The Hangman Game is an open-source command line (CLI) game. It fetches words from https://random-word.ryanrk.com/ - a big thanks for them. \nVersion     | v1.0.0 \nLicense     | MIT \nGitHub Repo | https://github.com/mrmagic2020/The-Hangman-Game \nSupport me by starring my GitHub repository! \n");
     }
 };
 
