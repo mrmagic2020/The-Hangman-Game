@@ -14,7 +14,9 @@ and this project adheres to [Semantic Versioning].
 ### Changed
 
 - Changed GET API source for better word selections.
+- Changed word lengths for different difficulties.
 - Added command list after finishing a game of hangman.
+- Use [json library](https://github.com/nlohmann/json) to parse API results.
 
 ### Deprecated
 
