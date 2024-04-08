@@ -12,14 +12,12 @@
 </pre>
 
 <div align="center">
-<img alt="license" src="https://img.shields.io/github/license/mrmagic2020/The-Hangman-Game
-">
-<img alt="release" src="https://img.shields.io/github/v/release/mrmagic2020/The-Hangman-Game
-">
-<img alt="realease-date" src="https://img.shields.io/github/release-date/mrmagic2020/The-Hangman-Game
-">
-<img alt="commits-since" src="https://img.shields.io/github/commits-since/mrmagic2020/The-Hangman-Game/latest
-">
+
+![license](https://img.shields.io/github/license/mrmagic2020/The-Hangman-Game)
+![release](https://img.shields.io/github/v/release/mrmagic2020/The-Hangman-Game)
+![realease-date](https://img.shields.io/github/release-date/mrmagic2020/The-Hangman-Game)
+![commits-since](https://img.shields.io/github/commits-since/mrmagic2020/The-Hangman-Game/latest)
+
 </div>
 
 ---
