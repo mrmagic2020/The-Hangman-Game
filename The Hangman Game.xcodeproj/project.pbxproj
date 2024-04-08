@@ -31,7 +31,7 @@
 		3E4087142BC2641A0017D903 /* word.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = word.h; sourceTree = "<group>"; };
 		3E4087162BC29B9C0017D903 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
 		3E9039C72BC3C44800DAEADA /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
-		3ED737662BC13C45005939D7 /* The Hangman Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "The Hangman Game"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED737662BC13C45005939D7 /* hangman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hangman; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED737692BC13C45005939D7 /* hangman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hangman.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,7 +67,7 @@
 		3ED737672BC13C45005939D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3ED737662BC13C45005939D7 /* The Hangman Game */,
+				3ED737662BC13C45005939D7 /* hangman */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,7 +103,7 @@
 			);
 			name = "The Hangman Game";
 			productName = "The Hangman Game";
-			productReference = 3ED737662BC13C45005939D7 /* The Hangman Game */;
+			productReference = 3ED737662BC13C45005939D7 /* hangman */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -271,7 +271,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8BBH645KL;
 				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = hangman;
 			};
 			name = Debug;
 		};
@@ -281,7 +281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8BBH645KL;
 				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = hangman;
 			};
 			name = Release;
 		};
