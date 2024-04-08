@@ -75,12 +75,12 @@
     "windowContentHeight" : 360,
     "windowContents" : [
       {
-        "filePath" : "\/Users\/arnold.zhou\/Library\/Developer\/Xcode\/DerivedData\/The_Hangman_Game-amnmymrxvkeswnadxbxnayqcdxdx\/Build\/Products\/Debug\/The Hangman Game",
+        "filePath" : "\/Users\/arnold.zhou\/Library\/Developer\/Xcode\/DerivedData\/The_Hangman_Game-amnmymrxvkeswnadxbxnayqcdxdx\/Build\/Products\/Release\/hangman",
         "iconSize" : 100,
         "invisible" : false,
         "isAnAlias" : false,
         "location" : "{166, 136}",
-        "relativeFilePath" : "..\/..\/..\/..\/..\/Library\/Developer\/Xcode\/DerivedData\/The_Hangman_Game-amnmymrxvkeswnadxbxnayqcdxdx\/Build\/Products\/Debug\/The Hangman Game"
+        "relativeFilePath" : "..\/..\/..\/..\/..\/Library\/Developer\/Xcode\/DerivedData\/The_Hangman_Game-amnmymrxvkeswnadxbxnayqcdxdx\/Build\/Products\/Release\/hangman"
       },
       {
         "filePath" : "\/usr\/local\/bin",
