@@ -19,7 +19,7 @@ private:
     bool hasHyphon = false;
     vector<int> status;
     
-    static int randLength(int min = 2, int max = 45)
+    int randLength(int min = 2, int max = 45)
     {
         return rand() % (max - min) + min;
     }
@@ -91,19 +91,19 @@ public:
     {
         switch (difficulty) {
             case Easy:
-                length = randLength(7, 12);
+                length = randLength(9, 15);
                 break;
             case Medium:
-                length = randLength(5, 8);
+                length = randLength(7, 11);
                 break;
             case Hard:
-                length = randLength(4, 6);
+                length = randLength(5, 9);
                 break;
             case Paranoid:
-                length = randLength(3, 5);
+                length = randLength(3, 6);
                 break;
             default:
-                length = randLength(7, 12);
+                length = randLength(9, 15);
                 break;
         }
         return init(false);
