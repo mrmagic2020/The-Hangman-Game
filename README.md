@@ -1,6 +1,6 @@
 # The-Hangman-Game
 
- The classic Hangman game implemented in the commandline. Made with Xcode.
+ The classic Hangman game implemented in the commandline. Made with Xcode. Currently supports `macOS`.
 
 <pre>
  +-----+     +-----+     +-----+
@@ -52,3 +52,13 @@ The classic hangman game!
 - (Planned) Add new words to offline word base to enjoy the game offline.
 
 ## How to Play
+
+1. Download the latest release [here](https://github.com/mrmagic2020/The-Hangman-Game/releases/latest).
+
+2. Open the disk image.
+
+3. Drag the executable file `hangman` into `usr/local/bin` directory (alias provided).
+
+4. In your terminal, enter `hangman`.
+
+5. Enjoy!
