@@ -52,6 +52,7 @@ private:
             usleep(1000000);
             char letter = requestLetter();
             bool has = word.attempt(letter);
+//            system("clear");
             if (has)
             {
                 printf("Congratulations! You found letter \"%c\".\n", letter);
@@ -103,7 +104,7 @@ public:
     {
         if (custom)
         {
-            printf("We are still working on this...Check for updates at: https://github.com/mrmagic2020/The-Hangman-Game\n");
+            printf("We are still working on this...Check for updates at: https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
         }
         else
         {
@@ -115,7 +116,6 @@ public:
                 printf("An error has occured. We couldn't find any words.\n");
                 return;
             }
-            debug.print("%s\n", word.str.c_str());
             start();
         }
     }
