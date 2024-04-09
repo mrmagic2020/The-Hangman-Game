@@ -21,7 +21,10 @@ private:
     
     int randLength(int min = 2, int max = 45)
     {
-        return rand() % (max - min) + min;
+        int ran = rand();
+        int res = (rand() % (max - min)) + min;
+        debug.print("rand()=%d, max=%d, min=%d, rand()mod(max-min)=%d, res=%d\n", ran, max, min, ran%(max-min), res);
+        return res;
     }
     
     string fetch(int len)
@@ -58,7 +61,6 @@ public:
     bool init(bool random, int min = 2, int max = 45)
     {
         printf("Generating word...\n");
-        srand((unsigned int)time(0));
         if (random)
         {
             int cnt = 0;
@@ -89,6 +91,7 @@ public:
     
     bool generate(int difficulty)
     {
+        srand((unsigned int)time(0));
         switch (difficulty) {
             case Easy:
                 length = randLength(9, 15);
@@ -106,6 +109,7 @@ public:
                 length = randLength(9, 15);
                 break;
         }
+        debug.print("Random length: %d\n", length);
         return init(false);
     }
     
