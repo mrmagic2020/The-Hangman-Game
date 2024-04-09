@@ -58,7 +58,7 @@ public:
     
     Word(int length, string str) : length(length), str(str) {}
     
-    bool init(bool random, int min = 2, int max = 45)
+    bool init(bool random, int min = 2, int max = 15)
     {
         printf("Generating word...\n");
         if (random)

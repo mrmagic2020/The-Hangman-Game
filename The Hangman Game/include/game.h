@@ -30,11 +30,11 @@ private:
         {
             printf("Word length invalid. ");
         }
-        printf("Speficy word length: ");
+        printf("Speficy word length (2~15, enter 0 for random length): ");
         int len;
         scanf("%d", &len);
         word.length = len;
-        bool res = word.init(false);
+        bool res = word.init(!len);
         if (!res)
         {
             setWordLength(true);
@@ -103,14 +103,15 @@ public:
     
     void init(bool custom = false)
     {
+        setDifficulty();
         if (custom)
         {
-            printf("We are still working on this...Check for updates at: https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
-            usleep(3000000);
+//            printf("We are still working on this...Check for updates at: https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
+//            usleep(3000000);
+            setWordLength();
         }
         else
         {
-            setDifficulty();
 //            setWordLength();
             bool res = word.generate(canvas.getDifficulty());
             if (!res)
@@ -118,8 +119,8 @@ public:
                 printf("An error has occured. We couldn't find any words.\n");
                 return;
             }
-            start();
         }
+        start();
     }
 };
 
