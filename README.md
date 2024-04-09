@@ -47,9 +47,11 @@ The classic hangman game!
 
 - Integrated in terminal - simply enter `hangman` to play!
 
-- (Planned) Customize your game! Decide what word length you want.
+- (Planned for v1.1.0) Customize your game! Decide what word length you want.
 
-- (Planned) Add new words to offline word base to enjoy the game offline.
+- (Planned for v1.2.0) Add new words to offline word base to enjoy the game offline.
+
+- (Planned for v1.3.0) Earn achievements!
 
 ## How to Play
 
