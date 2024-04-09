@@ -67,6 +67,7 @@ private:
         }
         usleep(1000000);
         printSummary();
+        usleep(3000000);
     }
     
     void printGameStatus()
@@ -105,6 +106,7 @@ public:
         if (custom)
         {
             printf("We are still working on this...Check for updates at: https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
+            usleep(3000000);
         }
         else
         {
