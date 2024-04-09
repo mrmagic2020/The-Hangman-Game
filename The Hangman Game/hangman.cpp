@@ -55,13 +55,17 @@ private:
                 game.init(true);
                 printCmds();
             }
-            else if (cmd == "help")
-            {
-                printCmds();
-            }
             else if (cmd == "update")
             {
                 printUpdate();
+            }
+            else if (cmd == "settings")
+            {
+                
+            }
+            else if (cmd == "help")
+            {
+                printCmds();
             }
             else if (cmd == "quit")
             {
