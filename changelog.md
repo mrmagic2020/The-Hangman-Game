@@ -18,13 +18,9 @@ and this project adheres to [Semantic Versioning].
 - Added command list after finishing a game of hangman.
 - Use [json library](https://github.com/nlohmann/json) to parse API results.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
-### Security
+- Fixed issues with random word length generation.
 
 ## [1.0.0] - 2024-04-08
 
