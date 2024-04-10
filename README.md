@@ -26,6 +26,8 @@
 
 - [Features](#features)
 - [How to Play](#how-to-play)
+  - [Command Explanation](#command-explanation)
+- [Technical Info](#technical-info)
 
 ## Features
 
@@ -45,13 +47,13 @@ The classic hangman game!
 
 - Online word base at [https://random-word-api.herokuapp.com/home](https://random-word-api.herokuapp.com/home) - never repeating! (well, almost)
 
+- Create an offline word base to enjoy the game offline! (Requires internet to initialize)
+
 - Integrated in terminal - simply enter `hangman` to play!
 
-- (Planned for v1.1.0) Customize your game! Decide what word length you want.
+- Customize your game! Decide what word length you want.
 
-- (Planned for v1.2.0) Add new words to offline word base to enjoy the game offline.
-
-- (Planned for v1.3.0) Earn achievements!
+- (Planned for v1.2.0) Earn achievements!
 
 ## How to Play
 
@@ -64,3 +66,27 @@ The classic hangman game!
 4. In your terminal, enter `hangman`.
 
 5. Enjoy!
+
+### Command Explanation
+
+`hangman` - root command.
+
+`--game` or `-g` - start a new game.
+
+`--offline` or `-o` -(optional) make the game offline.
+
+Start an online game: `hangman -g`
+
+Start an offline game: `hangman -g -o`
+
+View help: `hangman -h`
+
+## Technical Info
+
+**Build Environment:** MacBook Air (M1 2020), Sonoma 14.4.1
+
+**Xcode Version:** Version 15.3 (15E204a)
+
+**Clang Version:** Apple clang version 15.0.0 (clang-1500.3.9.4)
+
+**Offline Data Path:** ./.thehangmangame/ (relative to executable, usually stored in `User/`)
