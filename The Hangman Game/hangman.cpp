@@ -12,11 +12,15 @@
 #include <unistd.h>
 #include <curl/curl.h>
 
-#include "cget.h"
-#include "canvas.h"
-#include "debug.h"
-#include "word.h"
-#include "game.h"
+#include "include/CLI11.hpp"
+
+#include "include/cget.h"
+#include "include/canvas.h"
+#include "include/debug.h"
+#include "include/word.h"
+#include "include/wbase.h"
+#include "include/game.h"
+//#include "include/config.h"
 
 #define AUTHOR "mrmagic2020"
 #define VERSION "v1.1.0"
@@ -28,7 +32,7 @@ Debug debug(false);
 class Body
 {
 private:
-    void welcome()
+    void welcome(bool offline)
     {
         printf("Welcome to The Hangman Game!\n");
         printCmds();
@@ -46,13 +50,13 @@ private:
             else if (cmd == "new")
             {
                 Game game;
-                game.init();
+                game.init(offline);
                 printCmds();
             }
             else if (cmd == "custom")
             {
                 Game game;
-                game.init(true);
+                game.init(offline, true);
                 printCmds();
             }
             else if (cmd == "update")
@@ -93,9 +97,33 @@ private:
         printf("Get the latest version of The Hangman Game at https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
     }
 public:
-    void process(int argc, const char * argv[])
+    int process(int argc, const char * argv[])
     {
-        if (argc == 1) return welcome();
+        CLI::App app{"The classic Hangman game implemented in the commandline."};
+        bool game = false;
+        bool offline = false;
+        app.add_flag("-g,--game", game, "Start the game!");
+        app.add_flag("-o,--offline", offline, "Toggle offline mode.");
+        if (argc == 1)
+        {
+            printf("%s", app.help(argv[0], CLI::AppFormatMode::All).c_str());
+            return 0;
+        };
+        CLI11_PARSE(app, argc, argv);
+        if (offline)
+        {
+            bool res = wbase::init();
+            if (!res)
+            {
+                printf("Cannot connect to server. Check you internet connection.\n");
+                return 1;
+            }
+        }
+        if (game)
+        {
+            welcome(offline);
+        }
+        return 0;
     }
 };
 

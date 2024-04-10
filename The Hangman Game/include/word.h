@@ -8,7 +8,7 @@
 #ifndef word_h
 #define word_h
 
-//#include "cget.h"
+#include "wbase.h"
 
 using namespace std;
 
@@ -29,12 +29,12 @@ private:
     
     string fetch(int len)
     {
-        string res = httpGet(getUrl(len));
+        string res = cget::httpGet(cget::getUrl(len));
         if (res.size() < 4) // no word found
         {
             return "";
         }
-        return parse(res);
+        return cget::parse(res);
     }
     
     bool check()
@@ -58,38 +58,47 @@ public:
     
     Word(int length, string str) : length(length), str(str) {}
     
-    bool init(bool random, int min = 2, int max = 15)
+    bool init(bool random, bool offline, int min = 2, int max = 15)
     {
         printf("Generating word...\n");
-        if (random)
+        status.resize(length, 0);
+        if (!offline)
         {
-            int cnt = 0;
-            while (str == "")
+            if (random)
             {
-                if (cnt > (max - min) * (max - min)) return false;
-                length = randLength(min, max);
+                int cnt = 0;
+                while (str == "")
+                {
+                    if (cnt > (max - min) * (max - min)) return false;
+                    length = randLength(min, max);
+                    str = fetch(length);
+                }
+            }
+            else
+            {
+                if (!length) return false;
                 str = fetch(length);
+                if (str == "") return false;
+            }
+            for (int i = 0; i < length; i++)
+            {
+                if (str[i] == '-')
+                {
+                    hasHyphon = true;
+                    status[i] = 1; // exclude hyphons
+                }
             }
         }
         else
         {
-            if (!length) return false;
-            str = fetch(length);
+            str = wbase::fetch(length);
+            debug.print("Offline word: %s\n", str.c_str());
             if (str == "") return false;
-        }
-        status.resize(length, 0);
-        for (int i = 0; i < length; i++)
-        {
-            if (str[i] == '-')
-            {
-                hasHyphon = true;
-                status[i] = 1; // exclude hyphons
-            }
         }
         return true;
     }
     
-    bool generate(int difficulty)
+    bool generate(int difficulty, bool offline)
     {
         srand((unsigned int)time(0));
         switch (difficulty) {
@@ -110,7 +119,7 @@ public:
                 break;
         }
         debug.print("Random length: %d\n", length);
-        return init(false);
+        return init(false, offline);
     }
     
     bool attempt(char letter)
@@ -134,6 +143,7 @@ public:
         string s = "";
         for (int i = 0; i < length; i++)
         {
+            debug.print("i=%d\n", i);
             if (status[i]) s += str[i];
             else s += '_';
         }

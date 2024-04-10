@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning].
 ### Added
 
 - You can now customize a game by choosing any word length (2~15) or radomize it!
+- Enter `hangman` or `hangman -h/--help` to view options list.
+- You can now enjoy the game offline! (This took me TOO LONG) Enter `hangman -g -o` to start an offline game.
+
+### Changed
+
+- Now you have to enter `hangman -g/--game` to start a game of hangman.
+- Optimize game experience by adjusting output sequence and timings.
+- Use [`CLI11` library](https://github.com/CLIUtils/CLI11) to parse input commands.
+
+### Fixed
+
+- Fixed printing blank lines when there are no strikes.
 
 ## [1.0.1] - 2024-04-09
 

@@ -15,7 +15,10 @@
 using namespace std;
 using json = nlohmann::json;
 
+namespace cget {
+
 const string url = "https://random-word-api.herokuapp.com/word?length=";
+const string fetchAllUrl = "https://random-word-api.herokuapp.com/all";
 
 string getUrl(int length)
 {
@@ -56,10 +59,14 @@ string httpGet(const string& url) {
         res = curl_easy_perform(curl);
         if (res != CURLE_OK) {
             cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
+            return "";
         }
         curl_easy_cleanup(curl);
     }
     return readBuffer;
 }
+
+}
+
 
 #endif /* cget_h */
