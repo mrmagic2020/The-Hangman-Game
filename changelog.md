@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-04-10
+
 ### Added
 
 - You can now customize a game by choosing any word length (2~15) or radomize it!
@@ -50,5 +52,6 @@ and this project adheres to [Semantic Versioning].
 
 <!-- Versions -->
 [unreleased]: https://github.com/mrmagic2020/The-Hangman-Game/compare/v1.0.1...HEAD
+[1.1.0]: https://github.com/mrmagic2020/The-Hangman-Game/releases/v1.1.0
 [1.0.1]: https://github.com/mrmagic2020/The-Hangman-Game/releases/v1.0.1
 [1.0.0]: https://github.com/mrmagic2020/The-Hangman-Game/releases/v1.0.0
