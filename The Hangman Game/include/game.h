@@ -12,19 +12,20 @@ class Game
 {
 private:
     int attemptCount = 0;
+    bool isOffline;
     bool success = true;
     Canvas canvas;
     Word word;
     
     void setDifficulty()
     {
-        printf("Select a difficulty: \n0 | Easy \n1 | Medium \n2 | Hard \n3 | Paranoid \n");
+        printf("0 | Easy \n1 | Medium \n2 | Hard \n3 | Paranoid \nSelect a difficulty: ");
         Difficulty difficulty;
         scanf("%d", &difficulty);
         canvas = Canvas(difficulty);
     }
     
-    void setWordLength(bool lastFailed = false)
+    void setWordLength(bool offline, bool lastFailed = false)
     {
         if (lastFailed)
         {
@@ -34,7 +35,7 @@ private:
         int len;
         scanf("%d", &len);
         word.length = len;
-        bool res = word.init(!len);
+        bool res = word.init(!len, offline);
         if (!res)
         {
             setWordLength(true);
@@ -49,7 +50,7 @@ private:
             canvas.print();
             printGameStatus();
             word.visualise();
-            usleep(1000000);
+//            usleep(1000000);
             char letter = requestLetter();
             bool has = word.attempt(letter);
 //            system("clear");
@@ -80,6 +81,7 @@ private:
         char ch;
         printf("Guess a letter: ");
         scanf(" %c", &ch);
+        debug.print("Guessed letter: %c\n", ch);
         return ch;
     }
     
@@ -101,19 +103,20 @@ public:
         
     }
     
-    void init(bool custom = false)
+    void init(bool offline, bool custom = false)
     {
+        isOffline = offline;
         setDifficulty();
         if (custom)
         {
 //            printf("We are still working on this...Check for updates at: https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
 //            usleep(3000000);
-            setWordLength();
+            setWordLength(offline);
         }
         else
         {
 //            setWordLength();
-            bool res = word.generate(canvas.getDifficulty());
+            bool res = word.generate(canvas.getDifficulty(), isOffline);
             if (!res)
             {
                 printf("An error has occured. We couldn't find any words.\n");

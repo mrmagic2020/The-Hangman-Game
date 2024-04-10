@@ -9,15 +9,17 @@
 /* Begin PBXBuildFile section */
 		3E40870A2BC237CF0017D903 /* hangman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED737692BC13C45005939D7 /* hangman.cpp */; };
 		3E4087122BC260340017D903 /* libcurl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4087112BC260340017D903 /* libcurl.tbd */; };
+		3E4416072BC67320002C0F97 /* wbase.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E5E57782BC63B75002321D5 /* wbase.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3ED737642BC13C45005939D7 /* CopyFiles */ = {
+		3E4416062BC672FC002C0F97 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 7;
 			files = (
+				3E4416072BC67320002C0F97 /* wbase.json in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -30,6 +32,11 @@
 		3E4087132BC260EB0017D903 /* canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = canvas.h; sourceTree = "<group>"; };
 		3E4087142BC2641A0017D903 /* word.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = word.h; sourceTree = "<group>"; };
 		3E4087162BC29B9C0017D903 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		3E4416082BC67545002C0F97 /* db.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = db.h; sourceTree = "<group>"; };
+		3E4416092BC686E3002C0F97 /* CLI11.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CLI11.hpp; sourceTree = "<group>"; };
+		3E44160A2BC691A6002C0F97 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		3E5E57782BC63B75002321D5 /* wbase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wbase.json; sourceTree = "<group>"; };
+		3E5E57792BC63B9A002321D5 /* wbase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wbase.h; sourceTree = "<group>"; };
 		3E9039C72BC3C44800DAEADA /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		3ED737662BC13C45005939D7 /* hangman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hangman; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED737692BC13C45005939D7 /* hangman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hangman.cpp; sourceTree = "<group>"; };
@@ -50,12 +57,16 @@
 		3E02C8CE2BC51B1400E2D9E5 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				3E4416092BC686E3002C0F97 /* CLI11.hpp */,
 				3E9039C72BC3C44800DAEADA /* json.hpp */,
 				3E40870F2BC25F310017D903 /* cget.h */,
 				3E4087132BC260EB0017D903 /* canvas.h */,
 				3E40870B2BC23B1B0017D903 /* debug.h */,
 				3E4087142BC2641A0017D903 /* word.h */,
 				3E4087162BC29B9C0017D903 /* game.h */,
+				3E5E57792BC63B9A002321D5 /* wbase.h */,
+				3E4416082BC67545002C0F97 /* db.h */,
+				3E44160A2BC691A6002C0F97 /* config.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -66,6 +77,14 @@
 				3E4087112BC260340017D903 /* libcurl.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E5E57772BC63B58002321D5 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				3E5E57782BC63B75002321D5 /* wbase.json */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 		3ED7375D2BC13C45005939D7 = {
@@ -88,6 +107,7 @@
 		3ED737682BC13C45005939D7 /* The Hangman Game */ = {
 			isa = PBXGroup;
 			children = (
+				3E5E57772BC63B58002321D5 /* assets */,
 				3E02C8CE2BC51B1400E2D9E5 /* include */,
 				3ED737692BC13C45005939D7 /* hangman.cpp */,
 			);
@@ -103,7 +123,7 @@
 			buildPhases = (
 				3ED737622BC13C45005939D7 /* Sources */,
 				3ED737632BC13C45005939D7 /* Frameworks */,
-				3ED737642BC13C45005939D7 /* CopyFiles */,
+				3E4416062BC672FC002C0F97 /* CopyFiles */,
 			);
 			buildRules = (
 			);

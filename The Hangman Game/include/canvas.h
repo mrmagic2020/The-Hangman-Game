@@ -92,7 +92,8 @@ public:
     
     void print()
     {
-        cout << graph[stage][0];
+        if (stage != 0)
+            cout << graph[stage][0];
     }
     
     bool setStage(int num)
