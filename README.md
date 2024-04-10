@@ -89,4 +89,12 @@ View help: `hangman -h`
 
 **Clang Version:** Apple clang version 15.0.0 (clang-1500.3.9.4)
 
+**Libraries Used:**
+
+| Name | Author | Version |
+| ---- | ------ | ------- |
+| [curl](https://curl.se/) | | 8.7.1 |
+| [JSON for Modern C++](https://github.com/nlohmann/json/) | Niels Lohmann | 3.11.3 |
+| [CLI11](https://github.com/CLIUtils/CLI11) | | 2.4.1 |
+
 **Offline Data Path:** ./.thehangmangame/ (relative to executable, usually stored in `User/`)
