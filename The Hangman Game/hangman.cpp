@@ -114,6 +114,8 @@ public:
         });
         
         CLI::App* wbaseCmd = app.add_subcommand("wbase", "Offline word base manipulation.");
+        bool init;
+        wbaseCmd->add_flag("-i,--init", init, "Initialize offline word base. Requires internet connection.");
         bool dlete;
         wbaseCmd->add_flag("-d,--delete", dlete, "Delete offline word base.");
         bool reset;
@@ -121,7 +123,11 @@ public:
         bool path;
         wbaseCmd->add_flag("-p,--path", path, "Show path to offline word base.");
         wbaseCmd->callback([&]() {
-            if (dlete)
+            if (init)
+            {
+                wbase::init();
+            }
+            else if (dlete)
             {
                 wbase::dlete();
             }
