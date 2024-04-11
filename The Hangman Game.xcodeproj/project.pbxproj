@@ -284,6 +284,7 @@
 		3ED7376E2BC13C45005939D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8BBH645KL;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -294,6 +295,7 @@
 		3ED7376F2BC13C45005939D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8BBH645KL;
 				ENABLE_HARDENED_RUNTIME = YES;
