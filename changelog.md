@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+### Added
+
+- Add options to manipulate offline word base.
+
+### Changed
+
+- New game command has been changed to `hangman game \[-o\]`. `game` is a subcommand.
+
+### Fixed
+
+- Offline custom game set word length bugs.
+- Add word length validation.
+- Fix random word length bugs.
+
 ## [1.1.0] - 2024-04-10
 
 ### Added
@@ -20,6 +34,7 @@ and this project adheres to [Semantic Versioning].
 - Now you have to enter `hangman -g/--game` to start a game of hangman.
 - Optimize game experience by adjusting output sequence and timings.
 - Use [`CLI11` library](https://github.com/CLIUtils/CLI11) to parse input commands.
+- Move `about` and `update` commands.
 
 ### Fixed
 
