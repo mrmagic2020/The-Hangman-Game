@@ -15,11 +15,13 @@ using namespace std;
 class Word
 {
 private:
+    static const int minl = 2;
+    static const int maxl = 15;
     int found = 0;
     bool hasHyphon = false;
     vector<int> status;
     
-    int randLength(int min = 2, int max = 45)
+    int randLength(int min = minl, int max = maxl)
     {
         int ran = rand();
         int res = (rand() % (max - min)) + min;
@@ -58,10 +60,9 @@ public:
     
     Word(int length, string str) : length(length), str(str) {}
     
-    bool init(bool random, bool offline, int min = 2, int max = 15)
+    bool init(bool random, bool offline, int min = minl, int max = maxl)
     {
         printf("Generating word...\n");
-        status.resize(length, 0);
         if (!offline)
         {
             if (random)
@@ -72,6 +73,7 @@ public:
                     if (cnt > (max - min) * (max - min)) return false;
                     length = randLength(min, max);
                     str = fetch(length);
+                    cnt++;
                 }
             }
             else
@@ -80,20 +82,35 @@ public:
                 str = fetch(length);
                 if (str == "") return false;
             }
-            for (int i = 0; i < length; i++)
-            {
-                if (str[i] == '-')
-                {
-                    hasHyphon = true;
-                    status[i] = 1; // exclude hyphons
-                }
-            }
         }
         else
         {
-            str = wbase::fetch(length);
-            debug.print("Offline word: %s\n", str.c_str());
-            if (str == "") return false;
+            if (random)
+            {
+                int cnt = 0;
+                while (str == "")
+                {
+                    if (cnt > (max - min) * (max - min)) return false;
+                    length = randLength(min, max);
+                    str = wbase::fetch(length);
+                    cnt++;
+                }
+            }
+            else
+            {
+                str = wbase::fetch(length);
+                debug.print("Offline word: %s\n", str.c_str());
+                if (str == "") return false;
+            }
+        }
+        status.resize(length, 0);
+        for (int i = 0; i < length; i++)
+        {
+            if (str[i] == '-')
+            {
+                hasHyphon = true;
+                status[i] = 1; // exclude hyphons
+            }
         }
         return true;
     }
@@ -151,6 +168,11 @@ public:
         s += "\n";
         if (print) printf("%s", s.c_str());
         return s;
+    }
+    
+    bool validateLength(int len)
+    {
+        return (minl <= len && len <= maxl) || (len == 0);
     }
 };
 

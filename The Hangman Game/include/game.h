@@ -34,11 +34,15 @@ private:
         printf("Speficy word length (2~15, enter 0 for random length): ");
         int len;
         scanf("%d", &len);
+        if (!word.validateLength(len))
+        {
+            return setWordLength(offline, true);
+        }
         word.length = len;
         bool res = word.init(!len, offline);
         if (!res)
         {
-            setWordLength(true);
+            setWordLength(offline, true);
         }
     }
     
