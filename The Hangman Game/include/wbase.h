@@ -9,6 +9,7 @@
 #define wbase_h
 
 #include <fstream>
+#include <cstdio>
 
 #include "json.hpp"
 #include "db.h"
@@ -28,6 +29,7 @@ bool init()
         res = cget::httpGet(cget::fetchAllUrl);
         if (res == "")
         {
+            printf("Cannot connect to server. Check you internet connection.\n");
             return false;
         }
         filesystem::create_directory(db::homeDir + db::dir); // creates a new directory, as ofstream cannot do so
@@ -58,6 +60,26 @@ string fetch(int length)
 {
     if (words[length].empty()) return "";
     return words[length][rand() % words[length].size()];
+}
+
+void dlete()
+{
+    string path = "./" + db::wbasePath;
+    int res = remove(path.c_str());
+    if (res == 0)
+    {
+        printf("File deleted successfully.\n");
+    }
+    else
+    {
+        printf("An error occured deleting the file.\n");
+    }
+}
+
+void reset()
+{
+    dlete();
+    init();
 }
 
 }

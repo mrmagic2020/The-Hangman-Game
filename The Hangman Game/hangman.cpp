@@ -43,11 +43,7 @@ private:
             scanf("%s", ccmd);
             debug.print("Input cmd=\"%s\"\n", ccmd);
             cmd = ccmd;
-            if (cmd == "about")
-            {
-                printAbout();
-            }
-            else if (cmd == "new")
+            if (cmd == "new")
             {
                 Game game;
                 game.init(offline);
@@ -58,14 +54,6 @@ private:
                 Game game;
                 game.init(offline, true);
                 printCmds();
-            }
-            else if (cmd == "update")
-            {
-                printUpdate();
-            }
-            else if (cmd == "settings")
-            {
-                
             }
             else if (cmd == "help")
             {
@@ -82,47 +70,99 @@ private:
         }
     }
     
-    void printAbout()
+    static void printAbout(int n)
     {
         printf("The Hangman Game is an open-source command line (CLI) game. It fetches words from https://random-word-api.herokuapp.com/ - a big thanks to them. \nAuthor      | %s \nVersion     | %s \nLicense     | MIT \nGitHub Repo | https://github.com/mrmagic2020/The-Hangman-Game \nSupport me by starring my GitHub repository! \n", AUTHOR, VERSION);
     }
     
-    void printCmds()
+    static void printCmds()
     {
-        printf("List of commands: \nabout  | About the game \nnew    | Start a new game \ncustom | Customise a game \nupdate | View instructions on how to update the game \nquit   | Exit the game \n");
+        printf("new    | Start a new game \ncustom | Customise a game \nquit   | Exit the game \n");
     }
     
-    void printUpdate()
+    static void printUpdate(int n)
     {
         printf("Get the latest version of The Hangman Game at https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
+    }
+    
+    static void printVersion(int n)
+    {
+        printf("The Hangman Game Version %s\n", VERSION);
     }
 public:
     int process(int argc, const char * argv[])
     {
         CLI::App app{"The classic Hangman game implemented in the commandline."};
-        bool game = false;
+        
+        CLI::App* gameCmd = app.add_subcommand("game", "Start the game!");
         bool offline = false;
-        app.add_flag("-g,--game", game, "Start the game!");
-        app.add_flag("-o,--offline", offline, "Toggle offline mode.");
+        gameCmd->add_flag("-o,--offline", offline, "Toggle offline mode.");
+        gameCmd->callback([&]() {
+            if (offline)
+            {
+                bool res = wbase::init();
+                if (!res)
+                {
+                    return;
+                }
+                else
+                {
+                    printf("Starting offline mode...\n");
+                }
+            }
+            welcome(offline);
+        });
+        
+        CLI::App* wbaseCmd = app.add_subcommand("wbase", "Offline word base manipulation.");
+        bool dlete;
+        wbaseCmd->add_flag("-d,--delete", dlete, "Delete offline word base.");
+        bool reset;
+        wbaseCmd->add_flag("-r,--reset", reset, "Reset offline word base.");
+        bool path;
+        wbaseCmd->add_flag("-p,--path", path, "Show path to offline word base.");
+        wbaseCmd->callback([&]() {
+            if (dlete)
+            {
+                wbase::dlete();
+            }
+            else if (reset)
+            {
+                wbase::reset();
+            }
+            else if (path)
+            {
+                printf("Path to offline word base: %s\n", (db::homeDir + db::wbasePath).c_str());
+            }
+            else
+            {
+                printf("%s", app.help().c_str());
+            }
+        });
+        
+//        app.add_flag("-g,--game", game, "Start the game!");
+//        app.add_flag("-o,--offline", offline, "Toggle offline mode. Use with -g/--game.");
+        app.add_flag("--about", printAbout, "View game info.");
+        app.add_flag("-v,--version", printVersion, "View current game version.");
+        app.add_flag("-u,--update", printUpdate, "View update instructions.");
         if (argc == 1)
         {
-            printf("%s", app.help(argv[0], CLI::AppFormatMode::All).c_str());
+            printf("%s", app.help(argv[0]).c_str());
             return 0;
         };
         CLI11_PARSE(app, argc, argv);
-        if (offline)
-        {
-            bool res = wbase::init();
-            if (!res)
-            {
-                printf("Cannot connect to server. Check you internet connection.\n");
-                return 1;
-            }
-        }
-        if (game)
-        {
-            welcome(offline);
-        }
+//        if (offline)
+//        {
+//            bool res = wbase::init();
+//            if (!res)
+//            {
+//                printf("Cannot connect to server. Check you internet connection.\n");
+//                return 1;
+//            }
+//        }
+//        if (game)
+//        {
+//            welcome(offline);
+//        }
         return 0;
     }
 };
