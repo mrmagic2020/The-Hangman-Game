@@ -62,11 +62,13 @@ The classic hangman game!
 
 2. Open the disk image.
 
-3. Drag the executable file `hangman` into `usr/local/bin` directory (alias provided).
+3. Drag the executable file `hangman` into `usr/local/bin` directory (alias provided). You might need to open the `bin` folder and drag the executable into the window.
 
-4. In your terminal, enter `hangman`.
+4. Once it is in your `bin` folder, you will need to **right-click** the executable and select **open** to bypass Gatekeeper. I don't have an Apple developer certificate :(
 
-5. Enjoy!
+5. In your terminal, enter `hangman`.
+
+6. Enjoy!
 
 ### Command Explanation
 
