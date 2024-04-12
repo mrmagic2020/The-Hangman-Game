@@ -33,10 +33,10 @@ bool init()
             return false;
         }
         filesystem::create_directory(db::homeDir + db::dir); // creates a new directory, as ofstream cannot do so
-        ofstream wb("wbase.txt"); // creates a file in the user's home directory
+        ofstream wb("./" + db::wbasePath); // creates a file in the user's home directory
         wb << res; // writes in the data
         wb.close();
-        filesystem::rename(db::homeDir + "/wbase.txt", db::homeDir + db::wbasePath); // move the file to the deisgnated resource path
+//        filesystem::rename(db::homeDir + "/wbase.txt", db::homeDir + db::wbasePath); // move the file to the deisgnated resource path
         printf("Done.\n");
     }
     ifstream wb;
@@ -82,6 +82,6 @@ void reset()
     init();
 }
 
-}
+} // namespace wbase
 
 #endif /* wbase_h */
