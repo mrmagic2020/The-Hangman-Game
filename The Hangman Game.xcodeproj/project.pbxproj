@@ -35,6 +35,7 @@
 		3E44160A2BC691A6002C0F97 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		3E5E57792BC63B9A002321D5 /* wbase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wbase.h; sourceTree = "<group>"; };
 		3E9039C72BC3C44800DAEADA /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		3EBF1BBE2BC8CC56004FBD22 /* update.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = update.h; sourceTree = "<group>"; };
 		3ED737662BC13C45005939D7 /* hangman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hangman; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED737692BC13C45005939D7 /* hangman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hangman.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +65,7 @@
 				3E5E57792BC63B9A002321D5 /* wbase.h */,
 				3E4416082BC67545002C0F97 /* db.h */,
 				3E44160A2BC691A6002C0F97 /* config.h */,
+				3EBF1BBE2BC8CC56004FBD22 /* update.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
