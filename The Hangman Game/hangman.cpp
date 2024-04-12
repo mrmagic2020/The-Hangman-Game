@@ -87,6 +87,7 @@ private:
         printf("new    | Start a new game \ncustom | Customise a game \nquit   | Exit the game \n");
     }
     
+    [[deprecated]]
     static void printUpdate(int n)
     {
         printf("Get the latest version of The Hangman Game at https://github.com/mrmagic2020/The-Hangman-Game/releases/latest\n");
@@ -168,7 +169,7 @@ public:
             {
                 if (update::hasNewerVersion())
                 {
-                    printf("New version found: %s \nCurrent version: %s \nRun \"hangman update --download\" to update.", latestv.c_str(), VERSION);
+                    printf("New version found: %s \nCurrent version: %s \nRun \"hangman update --download\" to update.\n", latestv.c_str(), VERSION);
                 }
                 else
                 {
