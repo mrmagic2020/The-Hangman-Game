@@ -26,9 +26,15 @@
 #define AUTHOR "mrmagic2020"
 #define VERSION "v1.1.0"
 
+#if DEBUG
+bool debugmode = true;
+#else
+bool debugmode = false;
+#endif
+
 using namespace std;
 
-Debug debug(false);
+Debug debug(debugmode);
 
 class Body
 {
@@ -88,7 +94,7 @@ private:
     
     static void printVersion(int n)
     {
-        printf("The Hangman Game Version %s\n", VERSION);
+        printf("The Hangman Game version %s\n", VERSION);
     }
 public:
     int process(int argc, const char * argv[])
@@ -147,43 +153,54 @@ public:
         });
         
         CLI::App* updateCmd = app.add_subcommand("update", "Update to the latest version.");
+        bool check;
+        updateCmd->add_flag("-c,--check", check, "Check if a newer version is released.");
+        bool download;
+        updateCmd->add_flag("-d,--download", download, "Download the latest release DMG from GitHub, if any.");
         updateCmd->callback([&]() {
-            update::fetch();
-            string latestv = update::getLatestVersion();
-            printf("Latest release: %s\n", latestv.c_str());
-            if (latestv == VERSION)
+            bool res = update::init(VERSION);
+            if (!res)
             {
-                printf("The Hangman Game is up to date!\n");
-//                return;
+                return;
             }
-            debug.print("Download URL: %s\n", update::getDownloadURL().c_str());
-            update::downloadRelease();
+            string latestv = update::getLatestVersion();
+            if (check)
+            {
+                if (update::hasNewerVersion())
+                {
+                    printf("New version found: %s \nCurrent version: %s \nRun \"hangman update --download\" to update.", latestv.c_str(), VERSION);
+                }
+                else
+                {
+                    printf("The Hangman Game is up to date! [%s]\n", VERSION);
+                }
+            }
+            else if (download)
+            {
+                if (latestv == VERSION)
+                {
+                    printf("The Hangman Game is up to date!\n");
+                    return;
+                }
+                printf("Latest release: %s \nDownloading file...\n", latestv.c_str());
+                debug.print("Download URL: %s\n", update::getDownloadURL().c_str());
+                update::downloadRelease();
+                printf("Done. Check your Downloads folder.\n");
+            }
+            else
+            {
+                printf("%s", app.help().c_str());
+            }
         });
         
-//        app.add_flag("-g,--game", game, "Start the game!");
-//        app.add_flag("-o,--offline", offline, "Toggle offline mode. Use with -g/--game.");
         app.add_flag("--about", printAbout, "View game info.");
         app.add_flag("-v,--version", printVersion, "View current game version.");
-        app.add_flag("-u,--update", printUpdate, "View update instructions.");
         if (argc == 1)
         {
             printf("%s", app.help(argv[0]).c_str());
             return 0;
         };
         CLI11_PARSE(app, argc, argv);
-//        if (offline)
-//        {
-//            bool res = wbase::init();
-//            if (!res)
-//            {
-//                printf("Cannot connect to server. Check you internet connection.\n");
-//                return 1;
-//            }
-//        }
-//        if (game)
-//        {
-//            welcome(offline);
-//        }
         return 0;
     }
 };
@@ -191,13 +208,5 @@ public:
 int main(int argc, const char * argv[]) {
     Body body;
     body.process(argc, argv);
-    
-//    Word word(0);
-//    word.init();
-//    debug.print("word=%s\n", word.str.c_str());
-    
-//    Canvas canvas(Easy);
-//    canvas.setStage(10);
-//    canvas.print();
     return 0;
 }
