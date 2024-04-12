@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [1.2.0] - 2024-04-12
+
 ### Added
 
 - Add attempt record. Repetitive guesses will not count into total attempts.
@@ -18,7 +20,7 @@ and this project adheres to [Semantic Versioning].
 
 ### Changed
 
-- New game command has been changed to `hangman game \[-o\]`. `game` is a subcommand.
+- New game command has been changed to `hangman game [-o]`. `game` is a subcommand.
 
 ### Removed
 
@@ -77,6 +79,7 @@ and this project adheres to [Semantic Versioning].
 
 <!-- Versions -->
 [unreleased]: https://github.com/mrmagic2020/The-Hangman-Game/compare/v1.0.1...HEAD
+[1.2.0]: https://github.com/mrmagic2020/The-Hangman-Game/releases/v1.2.0
 [1.1.0]: https://github.com/mrmagic2020/The-Hangman-Game/releases/v1.1.0
 [1.0.1]: https://github.com/mrmagic2020/The-Hangman-Game/releases/v1.0.1
 [1.0.0]: https://github.com/mrmagic2020/The-Hangman-Game/releases/v1.0.0
