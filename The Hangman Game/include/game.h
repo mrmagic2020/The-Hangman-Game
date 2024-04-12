@@ -56,6 +56,13 @@ private:
             word.visualise();
 //            usleep(1000000);
             char letter = requestLetter();
+            if (word.hasVisited(letter))
+            {
+                printf("You've tried this letter before!\n");
+                attemptCount--;
+                usleep(1000000);
+                continue;
+            }
             bool has = word.attempt(letter);
 //            system("clear");
             if (has)

@@ -20,6 +20,7 @@ private:
     int found = 0;
     bool hasHyphon = false;
     vector<int> status;
+    set<char> visited;
     
     int randLength(int min = minl, int max = maxl)
     {
@@ -141,6 +142,7 @@ public:
     
     bool attempt(char letter)
     {
+        visited.insert(letter);
         bool res = false;
         for (int i = 0; i < length; i++)
         {
@@ -160,7 +162,6 @@ public:
         string s = "";
         for (int i = 0; i < length; i++)
         {
-            debug.print("i=%d\n", i);
             if (status[i]) s += str[i];
             else s += '_';
         }
@@ -173,6 +174,11 @@ public:
     bool validateLength(int len)
     {
         return (minl <= len && len <= maxl) || (len == 0);
+    }
+    
+    bool hasVisited(char letter)
+    {
+        return visited.find(letter) != visited.end();
     }
 };
 
