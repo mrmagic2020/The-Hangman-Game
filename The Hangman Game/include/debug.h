@@ -38,7 +38,7 @@ public:
         
         va_list args;
         va_start(args, content);
-        vprintf(content, args);
+        vprintf(("[debug] " + (std::string)content).c_str(), args);
         va_end(args);
     }
     
