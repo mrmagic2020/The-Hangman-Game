@@ -9,12 +9,21 @@ and this project adheres to [Semantic Versioning].
 
 ### Added
 
+- Add attempt record. Repetitive guesses will not count into total attempts.
 - Add options to manipulate offline word base.
-- Add `update` command to download latest DMG release from GitHub repository.
+- Add `update` sub-command to download latest DMG release from GitHub repository.
+
+  - `-c` or `--check` to check for updates.
+  - `-d` or `--download` to download latest release, if any.
 
 ### Changed
 
 - New game command has been changed to `hangman game \[-o\]`. `game` is a subcommand.
+
+### Removed
+
+- `-g/--game` flag.
+- `-u/--update` flag.
 
 ### Fixed
 
