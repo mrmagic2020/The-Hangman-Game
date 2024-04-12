@@ -20,6 +20,7 @@
 #include "include/word.h"
 #include "include/wbase.h"
 #include "include/game.h"
+#include "include/update.h"
 //#include "include/config.h"
 
 #define AUTHOR "mrmagic2020"
@@ -143,6 +144,20 @@ public:
             {
                 printf("%s", app.help().c_str());
             }
+        });
+        
+        CLI::App* updateCmd = app.add_subcommand("update", "Update to the latest version.");
+        updateCmd->callback([&]() {
+            update::fetch();
+            string latestv = update::getLatestVersion();
+            printf("Latest release: %s\n", latestv.c_str());
+            if (latestv == VERSION)
+            {
+                printf("The Hangman Game is up to date!\n");
+//                return;
+            }
+            debug.print("Download URL: %s\n", update::getDownloadURL().c_str());
+            update::downloadRelease();
         });
         
 //        app.add_flag("-g,--game", game, "Start the game!");

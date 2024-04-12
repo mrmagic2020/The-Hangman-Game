@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning].
 ### Added
 
 - Add options to manipulate offline word base.
+- Add `update` command to download latest DMG release from GitHub repository.
 
 ### Changed
 
