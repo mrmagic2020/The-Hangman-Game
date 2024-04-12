@@ -63,7 +63,8 @@ string httpGet(const string& url) {
         
         res = curl_easy_perform(curl);
         if (res != CURLE_OK) {
-            cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
+            debug.print("curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+//            cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
             return "";
         }
         curl_easy_cleanup(curl);
@@ -94,7 +95,7 @@ string httpGetWithHeader(const string& url) {
         // Perform the CURL request
         res = curl_easy_perform(curl);
         if(res != CURLE_OK) {
-            cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << '\n';
+            debug.print("curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
             return "";
         }
 
