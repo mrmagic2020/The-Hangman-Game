@@ -180,7 +180,7 @@ public:
             {
                 if (latestv == VERSION)
                 {
-                    printf("The Hangman Game is up to date!\n");
+                    printf("The Hangman Game is up to date! [%s]\n", VERSION);
                     return;
                 }
                 printf("Latest release: %s \nDownloading file...\n", latestv.c_str());
