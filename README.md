@@ -71,9 +71,21 @@ The classic hangman game!
 
 `hangman` - root command.
 
-`--game` or `-g` - start a new game.
+`game` - sub command. Starts a game of hangman.
 
-`--offline` or `-o` -(optional) make the game offline.
+- `--offline` or `-o` - (optional flag) make the game offline.
+
+`wbase` - sub command. Word base manipulation.
+
+- `--init` or `-i` - initialize offline word base.
+
+- `--delete` or `-d` - delete offline word base.
+
+- `--reset` or `-r` - reset offline word base (delete & initialize).
+
+`update` - sub command. Update your hangman game.
+
+### Examples
 
 Start an online game: `hangman -g`
 
