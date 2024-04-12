@@ -27,6 +27,7 @@
 - [Features](#features)
 - [How to Play](#how-to-play)
   - [Command Explanation](#command-explanation)
+  - [If you cannot access Terminal](#if-you-cannot-access-terminal)
 - [Technical Info](#technical-info)
 
 ## Features
@@ -85,13 +86,15 @@ The classic hangman game!
 
 `update` - sub command. Update your hangman game.
 
-### Examples
-
 Start an online game: `hangman -g`
 
 Start an offline game: `hangman -g -o`
 
 View help: `hangman -h`
+
+### If you cannot access Terminal
+
+We recommend you to read [this Guide](https://github.com/mrmagic2020/Remove-Jamf-on-Mac) on Terminal alternatives / removing restrictions on your Mac.
 
 ## Technical Info
 
