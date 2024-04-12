@@ -29,7 +29,7 @@ bool init()
         res = cget::httpGet(cget::fetchAllUrl);
         if (res == "")
         {
-            printf("Cannot connect to server. Check you internet connection.\n");
+            printf("Cannot connect to server. Check your internet connection.\n");
             return false;
         }
         filesystem::create_directory(db::homeDir + db::dir); // creates a new directory, as ofstream cannot do so

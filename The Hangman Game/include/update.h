@@ -44,7 +44,7 @@ bool init(string v)
     fetch();
     if (releaseInfo == NULL)
     {
-        printf("Cannot connect to server. Check you internet connection.\n");
+        printf("Cannot connect to server. Check your internet connection.\n");
         return false;
     }
     return true;
