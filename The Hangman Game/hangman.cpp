@@ -24,7 +24,7 @@
 //#include "include/config.h"
 
 #define AUTHOR "mrmagic2020"
-#define VERSION "v1.1.0"
+#define VERSION "v1.2.0"
 
 #if DEBUG
 bool debugmode = true;
