@@ -10,7 +10,7 @@
 #include <cstdarg>
 #include <cstdlib>
 #include <unistd.h>
-#include <curl/curl.h>
+#include <curl/curl.h> // /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 
 #include "include/CLI11.hpp"
 
