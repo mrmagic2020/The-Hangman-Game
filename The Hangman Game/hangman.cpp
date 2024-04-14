@@ -21,6 +21,7 @@
 #include "include/wbase.h"
 #include "include/game.h"
 #include "include/update.h"
+#include "include/format.h"
 //#include "include/config.h"
 
 #define AUTHOR "mrmagic2020"
@@ -53,13 +54,15 @@ private:
             if (cmd == "new")
             {
                 Game game;
-                game.init(offline);
+                bool res = game.init(offline);
+                if (!res) return;
                 printCmds();
             }
             else if (cmd == "custom")
             {
                 Game game;
-                game.init(offline, true);
+                bool res = game.init(offline, true);
+                if (!res) return;
                 printCmds();
             }
             else if (cmd == "help")
@@ -116,6 +119,14 @@ public:
                 else
                 {
                     printf("Starting offline mode...\n");
+                }
+            }
+            else
+            {
+                if (!cget::checkConnection())
+                {
+                    cget::noConnectionMsg();
+                    return;
                 }
             }
             welcome(offline);

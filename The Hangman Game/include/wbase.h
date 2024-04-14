@@ -21,15 +21,15 @@ vector<vector<string>> words(20);
 
 bool init()
 {
+    printf("Initializing offline word base...\n");
     string res;
     if (!filesystem::exists(db::homeDir + db::wbasePath))
     {
         debug.print("wbasePath=%s\n", db::wbasePath.c_str());
-        printf("Initializing offline word base...\n");
         res = cget::httpGet(cget::fetchAllUrl);
         if (res == "")
         {
-            printf("Cannot connect to server. Check your internet connection.\n");
+            cget::noConnectionMsg();
             return false;
         }
         filesystem::create_directory(db::homeDir + db::dir); // creates a new directory, as ofstream cannot do so
@@ -37,7 +37,6 @@ bool init()
         wb << res; // writes in the data
         wb.close();
 //        filesystem::rename(db::homeDir + "/wbase.txt", db::homeDir + db::wbasePath); // move the file to the deisgnated resource path
-        printf("Done.\n");
     }
     ifstream wb;
     wb.open("./" + db::wbasePath);
@@ -53,6 +52,7 @@ bool init()
         words[w.size()].emplace_back(w);
     }
     vector<string>().swap(tmp); // free up memory
+    printf("Done.\n");
     return true;
 }
 

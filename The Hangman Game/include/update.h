@@ -44,7 +44,7 @@ bool init(string v)
     fetch();
     if (releaseInfo == NULL)
     {
-        printf("Cannot connect to server. Check your internet connection.\n");
+        cget::noConnectionMsg();
         return false;
     }
     return true;

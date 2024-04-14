@@ -11,6 +11,7 @@
 #include <iostream>
 #include "json.hpp"
 #include "debug.h"
+#include "format.h"
 
 using namespace std;
 using json = nlohmann::json;
@@ -136,6 +137,16 @@ void downloadFile(const std::string& url, const std::string& filename) {
         fclose(fp);
         curl_easy_cleanup(curl);
     }
+}
+
+bool checkConnection()
+{
+    return httpGet(url + "2") != "";
+}
+
+void noConnectionMsg()
+{
+    printf("%s\n", format::error("Cannot connect to server. Check your internet connection.").c_str());
 }
 
 } // namespace cget

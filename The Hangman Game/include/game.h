@@ -8,6 +8,8 @@
 #ifndef body_h
 #define body_h
 
+#define SEC * 1000000
+
 class Game
 {
 private:
@@ -22,6 +24,11 @@ private:
         printf("0 | Easy \n1 | Medium \n2 | Hard \n3 | Paranoid \nSelect a difficulty: ");
         Difficulty difficulty;
         scanf("%d", &difficulty);
+        if (difficulty < 0 || difficulty > 3)
+        {
+            printf("Invalid input.\n");
+            return setDifficulty();
+        }
         canvas = Canvas(difficulty);
     }
     
@@ -60,7 +67,7 @@ private:
             {
                 printf("You've tried this letter before!\n");
                 attemptCount--;
-                usleep(1000000);
+                usleep(1 SEC);
                 continue;
             }
             bool has = word.attempt(letter);
@@ -75,11 +82,11 @@ private:
                 success = !canvas.strike();
                 if (!success) break;
             }
-            usleep(1000000);
+            usleep(1 SEC);
         }
-        usleep(1000000);
+        usleep(1 SEC);
         printSummary();
-        usleep(3000000);
+        usleep(3 SEC);
     }
     
     void printGameStatus()
@@ -114,7 +121,7 @@ public:
         
     }
     
-    void init(bool offline, bool custom = false)
+    bool init(bool offline, bool custom = false)
     {
         isOffline = offline;
         setDifficulty();
@@ -131,10 +138,11 @@ public:
             if (!res)
             {
                 printf("An error has occured. We couldn't find any words.\n");
-                return;
+                return false;
             }
         }
         start();
+        return true;
     }
 };
 
