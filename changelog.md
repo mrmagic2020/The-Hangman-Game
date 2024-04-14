@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+### Added
+
+- Add Internet connection check before initializing online game.
+
+- Add difficulty selection input validation.
+
+### Changed
+
+- Automatically exit game when Internet connection fails.
+
 ## [1.2.0] - 2024-04-12
 
 ### Added
