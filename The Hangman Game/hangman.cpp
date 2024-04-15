@@ -12,16 +12,16 @@
 #include <unistd.h>
 #include <curl/curl.h> // /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
 
-#include "include/CLI11.hpp"
+#include "include/libs/CLI11.hpp"
 
-#include "include/cget.h"
+#include "include/utils/cget.h"
 #include "include/canvas.h"
-#include "include/debug.h"
+#include "include/utils/debug.h"
 #include "include/word.h"
 #include "include/wbase.h"
 #include "include/game.h"
-#include "include/update.h"
-#include "include/format.h"
+#include "include/utils/update.h"
+#include "include/utils/format.h"
 //#include "include/config.h"
 
 #define AUTHOR "mrmagic2020"

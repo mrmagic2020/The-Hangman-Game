@@ -24,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3E40870B2BC23B1B0017D903 /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = debug.h; path = "The Hangman Game/include/debug.h"; sourceTree = SOURCE_ROOT; };
+		3E0C49A32BCD2A87005D41BB /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		3E40870F2BC25F310017D903 /* cget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cget.h; sourceTree = "<group>"; };
 		3E4087112BC260340017D903 /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = usr/lib/libcurl.tbd; sourceTree = SDKROOT; };
 		3E4087132BC260EB0017D903 /* canvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = canvas.h; sourceTree = "<group>"; };
@@ -56,20 +56,36 @@
 		3E02C8CE2BC51B1400E2D9E5 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				3E4416092BC686E3002C0F97 /* CLI11.hpp */,
-				3E9039C72BC3C44800DAEADA /* json.hpp */,
-				3E40870F2BC25F310017D903 /* cget.h */,
+				3E0C49A12BCD29FB005D41BB /* libs */,
+				3E0C49A22BCD2A28005D41BB /* utils */,
 				3E4087132BC260EB0017D903 /* canvas.h */,
-				3E40870B2BC23B1B0017D903 /* debug.h */,
 				3E4087142BC2641A0017D903 /* word.h */,
 				3E4087162BC29B9C0017D903 /* game.h */,
 				3E5E57792BC63B9A002321D5 /* wbase.h */,
-				3E4416082BC67545002C0F97 /* db.h */,
-				3E44160A2BC691A6002C0F97 /* config.h */,
-				3EBF1BBE2BC8CC56004FBD22 /* update.h */,
-				3EC968892BCB81E000AC8579 /* format.h */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		3E0C49A12BCD29FB005D41BB /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				3E4416092BC686E3002C0F97 /* CLI11.hpp */,
+				3E9039C72BC3C44800DAEADA /* json.hpp */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		3E0C49A22BCD2A28005D41BB /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				3E0C49A32BCD2A87005D41BB /* debug.h */,
+				3E40870F2BC25F310017D903 /* cget.h */,
+				3E4416082BC67545002C0F97 /* db.h */,
+				3EBF1BBE2BC8CC56004FBD22 /* update.h */,
+				3EC968892BCB81E000AC8579 /* format.h */,
+				3E44160A2BC691A6002C0F97 /* config.h */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		3E4087102BC260340017D903 /* Frameworks */ = {
