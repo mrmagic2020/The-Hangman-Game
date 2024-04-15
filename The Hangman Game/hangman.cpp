@@ -118,7 +118,7 @@ public:
                 }
                 else
                 {
-                    printf("Starting offline mode...\n");
+                    printf("%sStarting offline mode...%s\n", format::BRIGHT, format::RESTORE);
                 }
             }
             else
